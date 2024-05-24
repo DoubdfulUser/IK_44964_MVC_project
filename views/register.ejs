@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="container">
+        <div class="register-form-container">
+            <h1 class="login-text">Register</h1>
+            <form action="/register" method="POST" class="register-form">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
+                <input type="text" id="first_name" name="first_name" placeholder="First Name">
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+                <button type="submit">Register</button>
+                <h3 class="register-link"><a href="/login">Have account already? Login</a></h3>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="/images/logo.png" alt="Register Image" class="training-image">
+        </div>
+    </div>
+</body>
+</html>
+</html>
+

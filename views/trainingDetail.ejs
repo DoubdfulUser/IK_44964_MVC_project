@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .training-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .training-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .training-info {
+            flex: 1;
+            text-align: center;
+        }
+        .training-info h2 {
+            margin: 0 0 10px;
+            font-size: 34px;
+            color: #333;
+        }
+        .training-info p {
+            margin: 15px 0;
+            color: #666;
+            font-size: 20px;
+        }
+        .training-info p span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .description {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #888;
+        }
+
+        .edit-link-btn {
+            border: none;
+            border-radius: 8px;
+            background-color: #666666; /* Цвет кнопки */
+            color: #ffffff; /* Цвет текста */
+
+            /* Дополнительные стили для кнопки */
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-link-btn:hover {
+            background-color: #919191; /* Цвет кнопки при наведении */
+            cursor: pointer;
+        }
+
+        /* Стили для ссылки внутри кнопки */
+        .edit-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="container">
+        <div class="training-card"> 
+            <img src="/<%= training.image %>" alt="<%= training.name %> Image" class="training-image">
+            <div class="training-info">
+                <h2><%= training.name %></h2>
+                <p><span>Type:</span> <%= training.type %></p>
+                <p><span>Intensity:</span> <%= training.intensity %></p>
+                <p><span>Duration:</span> <%= training.duration %> minutes</p>
+                <p><span>City:</span> <%= training.city %></p>
+                <p><span>Location:</span> <%= training.location %></p>
+                <p><span>Date:</span> <%= training.date.toDateString() %></p>
+                <% if (user && user._id.toString() === training.user._id.toString()) { %>
+                    <button class="edit-link-btn"><a href="/trainings/<%= training._id %>/edit" class="edit-link">Edit Training</a></button>
+                <% } %>
+            </div>
+        </div>
+        <% if (training.description) { %>
+            <p class="description"><span>Description:</span> <%= training.description %></p>
+        <% } %>
+    </div>
+</body>
+</html>
