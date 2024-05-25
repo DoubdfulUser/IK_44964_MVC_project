@@ -4,7 +4,6 @@
 - [Opis projektu](#opis-projektu)
 - [Zaimplementowane funkcjonalności](#zaimplementowane-funkcjonalności)
 - [Instrukcje obsługi](#instrukcje-obsługi)
-- [Dodatkowe informacje](#dodatkowe-informacje)
 
 ## Opis Projektu
 Nazwa projektu: Fitness Training Management Application
