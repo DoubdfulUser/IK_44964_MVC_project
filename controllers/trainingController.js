@@ -18,7 +18,7 @@ exports.addTraining = async (req, res) => {
             location,
             date,
             description,
-            image: imagePath // Сохраняем путь к изображению в базе данных
+            image: imagePath 
         });
 
         await newTraining.save();
@@ -64,7 +64,6 @@ exports.updateTraining = async (req, res) => {
     }
 };
 
-// Добавь другие методы для работы с тренировками, например, deleteTraining и т.д.
 
 
 exports.searchTraining = async (req, res) => {

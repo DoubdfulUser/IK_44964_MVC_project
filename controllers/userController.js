@@ -1,12 +1,10 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-// Register user
 exports.registerUser = async (req, res) => {
     try {
         const { username, email, password, password2, first_name, last_name } = req.body;
 
-        // Проверка совпадения паролей
         if (password !== password2) {
             return res.status(400).send('Passwords do not match');
         }
@@ -26,7 +24,6 @@ exports.registerUser = async (req, res) => {
     }
 };
 
-// Login user
 exports.loginUser = async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -44,7 +41,6 @@ exports.loginUser = async (req, res) => {
     }
 };
 
-// Logout user
 exports.logoutUser = (req, res) => {
     req.session.destroy(err => {
         if (err) {

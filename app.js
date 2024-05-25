@@ -9,7 +9,6 @@ const Training = require('./models/training');
 const app = express();
 const path = require('path');
 
-// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,7 +29,6 @@ app.use(session({
     store: MongoStore.create({ mongoUrl: 'mongodb://localhost/fitness' })
 }));
 
-// Middleware to make the user available to all views
 app.use((req, res, next) => {
     res.locals.user = req.session.user;
     next();
